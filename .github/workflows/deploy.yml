@@ -1,0 +1,24 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo "Build Dev"
+
+      - name: Deploy Dev
+        run: echo "Deploy Dev"
+
+  prod:
+    needs: dev
+    runs-on: ubuntu-latest
+    environment:
+      name: prod# 🔐 Manual approval gate
+    steps:
+      - name: Deploy Prod
+        run: echo "Deploy Prod"
