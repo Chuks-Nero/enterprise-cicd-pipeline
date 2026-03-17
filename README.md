@@ -49,27 +49,47 @@ CI/CD System
 #### Cicd-user configuratioin
 The cicd-user is configured to be accessed via ClI with zero access to any AWS service, all activities has to be through role assumption.
 
+![cicd user](projectimages/cicd%20user.png)
+
+---
 
 #### CICD Role Assumption
 All permissions now come **only** from the role policy
 
+![cicd-pipeline role](projectimages/cicd-pipeline%20role.png)
 
+ ---
+ 
 #### Secure Prod Deployment Role (Enterprise CI/CD Architecture)
 Pipeline-only prod access
 
+![Prod Deployment](projectimages/Prod%20Deployment.png)
+
+---
 
 #### Manual approval gates
 Code cannot deploy to prod without human authorization.Even if the pipeline is compromised, **prod stays locked**.
 Dev Build → Dev Deploy → Manual Approval → Prod Deploy
 
+![Manual Approval](projectimages/Manual%20Approval.png)
+ 
+---
 
 #### Audit & Monitoring
 Track:
 #### AssumeRole
 Prove someone assumed the Prod deployment role
 
+![Assume Role](projectimages/Assume%20Role.png)
+
+---
+
 #### UpdateService
-Prove someone assumed the Prod deployment role
+Prove service update on the session
+
+![Update service](projectimages/Update%20service.png)
+ 
+---
 
 ## Final Enterprise Architecture
 #### CI/CD Cross-Account Deployment Flow
